@@ -152,12 +152,12 @@ export PATH=/Users/anton/.miniconda3/bin:"$PATH"
 # added by Miniconda3 4.5.12 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/anton/.miniconda3/bin/conda' shell.zsh hook 2> /dev/null)"
+__conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/.miniconda3/bin/conda' shell.zsh hook 2> /dev/null)"
 if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
-    if [ -f "/Users/anton/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/anton/.miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/.miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/.miniconda3/etc/profile.d/conda.sh"
         CONDA_CHANGEPS1=false conda activate base
     else
         \export PATH="/Users/anton/.miniconda3/bin:$PATH"
