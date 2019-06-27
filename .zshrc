@@ -1,3 +1,16 @@
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US:en"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_PAPER="en_US.UTF-8"
+export LC_IDENTIFICATION="en_US.UTF-8"
+export LC_NAME="en_US.UTF-8"
+export LC_ADDRESS="en_US.UTF-8"
+export LC_TELEPHONE="en_US.UTF-8"
+export LC_MEASUREMENT="en_US.UTF-8"
+export LC_ALL=en_US.UTF-8
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -130,7 +143,7 @@ antigen bundle petervanderdoes/gitflow-avh --branch=master
 antigen bundle joel-porquet/zsh-dircolors-solarized.git
 antigen theme https://github.com/iam4x/zsh-iterm-touchbar
 antigen bundle fabiokiatkowski/exercism.plugin.zsh
-
+antigen bundle zsh-users/zsh-autosuggestions
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -143,25 +156,40 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 # Tell Antigen that you're done.
 antigen apply
 
+bindkey "^ " autosuggest-accept
+
+# Disable next line if you don't want vi key binding
 bindkey -v
 export KEYTIMEOUT=1
-bindkey '^R' history-incremental-search-backward
-export PATH="/usr/local/sbin:$PATH"
-export PATH=/Users/anton/.miniconda3/bin:"$PATH"
+bindkey "^R" history-incremental-search-backward
 
-# added by Miniconda3 4.5.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/.miniconda3/bin/conda' shell.zsh hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "$HOME/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/.miniconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/Users/anton/.miniconda3/bin:$PATH"
-    fi
+GOPATH="~/go/bin"
+
+if [ -x "$GOPATH/go" ]; then
+  export GOPATH
+  export PATH="$GOPATH:$PATH"
 fi
-unset __conda_setup
-# <<< conda init <<<
+
+if [ -x "/usr/local/sbin" ]; then
+  export PATH="/usr/local/sbin:$PATH"
+fi
+
+export PATH=$HOME/.miniconda3/bin:"$PATH"
+
+if [ -x "$HOME/.miniconda3/bin/conda" ]; then
+  # added by Miniconda3 4.5.12 installer
+  # >>> conda init >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/.miniconda3/bin/conda' shell.zsh hook 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      \eval "$__conda_setup"
+  else
+      if [ -f "$HOME/.miniconda3/etc/profile.d/conda.sh" ]; then
+          . "$HOME/.miniconda3/etc/profile.d/conda.sh"
+          CONDA_CHANGEPS1=false conda activate base
+      else
+          \export PATH="$HOME/.miniconda3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+fi
