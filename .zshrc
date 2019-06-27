@@ -119,13 +119,19 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%f "
 # POWERLEVEL9K_PYENV_FOREGROUND="034"
 POWERLEVEL9K_CUSTOM_BATTERY_STATUS="prompt_zsh_battery_level"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context os_icon ssh root_indicator dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status pyenv anaconda)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status anaconda)
 HIST_STAMPS="dd/mm/yyyy"
 DISABLE_UPDATE_PROMPT=true
 
 
-
-source /usr/local/share/antigen/antigen.zsh
+if [[ -a /usr/local/share/antigen/antigen.zsh ]]; then
+    source /usr/local/share/antigen/antigen.zsh
+elif [[ -a $HOME/antigen.zsh ]]; then
+    source $HOME/antigen.zsh
+else
+    curl -L git.io/antigen > antigen.zsh
+fi
+ 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
