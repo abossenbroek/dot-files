@@ -182,6 +182,11 @@ fi
 
 export PATH=$HOME/.miniconda3/bin:"$PATH"
 
+LATEX_PATH=/usr/local/texlive/2019/bin/x86_64-darwin/
+if [ -d "$LATEX_PATH" ]; then
+  export PATH="$LATEX_PATH:$PATH"
+fi
+
 if [ -x "$HOME/.miniconda3/bin/conda" ]; then
   # added by Miniconda3 4.5.12 installer
   # >>> conda init >>>
