@@ -204,3 +204,7 @@ if [ -x "$HOME/miniconda3/bin/conda" ]; then
   fi
   unset __conda_setup
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/antonbossenbroek/.sdkman"
+[[ -s "/Users/antonbossenbroek/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/antonbossenbroek/.sdkman/bin/sdkman-init.sh"
