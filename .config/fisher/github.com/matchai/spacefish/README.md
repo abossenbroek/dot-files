@@ -29,7 +29,7 @@
 
 <div align="center">
   <h4>
-    <a href="https://spacefish.matchai.me/">Website</a> |
+    <a href="https://spacefish.matchai.dev/">Website</a> |
     <a href="#installation">Install</a> |
     <a href="#features">Features</a> |
     <a href="./docs/Options.md">Options</a> |
@@ -39,7 +39,7 @@
 
 <div align="center">
   <sub>Built with ❤︎ by
-  <a href="https://matchai.me">Matan Kushner</a> and
+  <a href="https://matchai.dev">Matan Kushner</a> and
   <a href="#contributors">contributors </a></sub>
   <br>
   <sub>A port of <a href="https://github.com/denysdovhan/spaceship-prompt">Spaceship ZSH</a> by
@@ -111,7 +111,7 @@ To get spacefish working correctly, you will need:
 ### [Fisher](https://github.com/jorgebucaran/fisher)
 
 ```fish
-$ fisher add matchai/spacefish
+$ fisher install matchai/spacefish
 ```
 
 ### [Oh My Fish!](https://github.com/oh-my-fish/oh-my-fish)
@@ -179,7 +179,7 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 
 ## License
 
-MIT © [Matan Kushner](http://matchai.me)
+MIT © [Matan Kushner](http://matchai.dev)
 
 <!-- Links -->
 
