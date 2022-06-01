@@ -10,15 +10,19 @@ end
 
 set PATH $HOME/.local/bin $PATH
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
+if test -e /usr/local/Caskroom/miniconda/base/bin/conda
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  eval /usr/local/Caskroom/miniconda/base/bin/conda "shell.fish" "hook" $argv | source
+  # <<< conda initialize <<<
+end
 
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-set -gx MAMBA_EXE "/usr/local/Caskroom/miniconda/base/bin/micromamba"
-set -gx MAMBA_ROOT_PREFIX "/Users/antonbossenbroek/micromamba"
-eval "/usr/local/Caskroom/miniconda/base/bin/micromamba" shell hook --shell fish --prefix "/Users/antonbossenbroek/micromamba" | source
-# <<< mamba initialize <<<
+if test -e /usr/local/Caskroom/miniconda/base/bin/micromamba
+  # >>> mamba initialize >>>
+  # !! Contents within this block are managed by 'mamba init' !!
+  set -gx MAMBA_EXE "/usr/local/Caskroom/miniconda/base/bin/micromamba"
+  set -gx MAMBA_ROOT_PREFIX "/Users/antonbossenbroek/micromamba"
+  eval "/usr/local/Caskroom/miniconda/base/bin/micromamba" shell hook --shell fish --prefix "/Users/antonbossenbroek/micromamba" | source
+  # <<< mamba initialize <<<
+end
