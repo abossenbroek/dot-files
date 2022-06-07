@@ -17,6 +17,9 @@ if test -e /usr/local/Caskroom/miniconda/base/bin/conda
   # <<< conda initialize <<<
 end
 
+if test -e /opt/conda/bin/conda
+  eval /opt/conda/bin/conda "shell.fish" "hook" $argv | source
+ end
 
 if test -e /usr/local/Caskroom/miniconda/base/bin/micromamba
   # >>> mamba initialize >>>
